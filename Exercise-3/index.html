@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" >
+	<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Climate</th>
+                <th>Diameter</th>
+                <th>Gravity</th>
+                <th>Terrain</th>
+                <th>Population</th> 
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        $('#example').DataTable({
+			ajax: {
+				url: 'https://swapi.co/api/planets/',
+				dataSrc: 'results'
+			},
+			columns: [
+				{data: "name" }, 
+				{data: "climate" }, 
+				{data: "diameter" },
+				{data: "gravity" },
+				{data: "terrain"},
+				{data: "population"}
+			]
+		});
+    </script>
+</body>
+</html>
